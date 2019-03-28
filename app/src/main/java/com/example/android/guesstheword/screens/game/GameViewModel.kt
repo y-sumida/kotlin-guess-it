@@ -47,14 +47,13 @@ class GameViewModel: ViewModel() {
         _eventGameFinish.value = false
         timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
             override fun onTick(millisUntilFinished: Long) {
-                _remainingTime.value = DateUtils.formatElapsedTime(millisUntilFinished / 1000)
+                _remainingTime.value = DateUtils.formatElapsedTime(millisUntilFinished / ONE_SECOND)
             }
 
             override fun onFinish() {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         }
-        _remainingTime.value = DateUtils.formatElapsedTime(60)
 
         timer.start()
     }
